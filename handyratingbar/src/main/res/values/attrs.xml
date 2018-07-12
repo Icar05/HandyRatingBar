@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HandyRatingBar">
+        <attr name="starSpace" format="dimension"/>
+        <attr name="inActiveStar" format="integer"/>
+        <attr name="activeStar" format="integer"/>
+        <attr name="numStars" format="integer"/>
+        <attr name="rating" format="float" />
+        <attr name="hasAmimation" format="boolean"/>
+
+    </declare-styleable>
+</resources>
