@@ -5,7 +5,6 @@ This is easy implementation of rating bar, simple and convenient.
 # Download
 compile 'com.github.Icar05:handyratingbar:0.1.0'
 
-# Styling
 
 # Attributes
 
