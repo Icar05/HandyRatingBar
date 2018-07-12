@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.example.handyratingbar.HandyRatingBar
+    <com.Icar05.handyratingbar.HandyRatingBar
         android:id="@+id/topBar"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         app:numStars="5"
         app:starSpace="12dp" />
 
-    <com.example.handyratingbar.HandyRatingBar
+    <com.Icar05.handyratingbar.HandyRatingBar
         android:id="@+id/bottomBar"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         app:starSpace="12dp" />
 
 
-    <com.example.handyratingbar.HandyRatingBar
+    <com.Icar05.handyratingbar.HandyRatingBar
         android:id="@+id/middleBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

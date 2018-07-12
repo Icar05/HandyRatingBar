@@ -1,4 +1,4 @@
-package com.example.alex.handyratingbar
+package com.Icar05.alex.handyratingbar
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

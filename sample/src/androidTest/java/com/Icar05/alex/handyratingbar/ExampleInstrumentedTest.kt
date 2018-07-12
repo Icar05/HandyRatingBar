@@ -1,4 +1,4 @@
-package com.example.alex.handyratingbar
+package com.Icar05.alex.handyratingbar
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

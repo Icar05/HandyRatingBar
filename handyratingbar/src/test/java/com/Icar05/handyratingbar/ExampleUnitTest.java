@@ -1,4 +1,4 @@
-package com.example.handyratingbar;
+package com.Icar05.handyratingbar;
 
 import org.junit.Test;
 

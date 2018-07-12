@@ -1,4 +1,4 @@
-package com.example.handyratingbar;
+package com.Icar05.handyratingbar;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
