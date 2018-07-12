@@ -1,6 +1,7 @@
 # HandyRatingBar
 This is easy implementation of rating bar, simple and convenient.
 
+![alt text](https://github.com/Icar05/HandyRatingBar/blob/master/handyratingbar.gif)
 
 # Download
 compile 'com.github.Icar05:handyratingbar:0.1.0'
