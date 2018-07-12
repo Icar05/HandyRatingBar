@@ -8,7 +8,9 @@ It will redraw all stars aligned to size. <br>
 There no more needs using scale attribute) <br>
 
 # Download
-compile 'com.github.Icar05:handyratingbar:x.x.x' <br>
+compile 'com.github.Icar05:handyratingbar:#.#.#' <br>
+
+replace # with current version
 
  [ ![Download](https://api.bintray.com/packages/icar05/handyratingbar/HandyRatingBar/images/download.svg) ](https://bintray.com/icar05/handyratingbar/HandyRatingBar/_latestVersion)
 
