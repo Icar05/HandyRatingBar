@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.handyratingbar" />
+<manifest package="com.example.handyratingbar" />
