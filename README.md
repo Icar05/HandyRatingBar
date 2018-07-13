@@ -15,12 +15,12 @@ compile 'com.github.Icar05:handyratingbar:0.1.0' <br>
 # Attributes
 
 
-  • hasAmimation - with this flag view will works with animation <br>
-  • rating - value of rating that can be setted from xml or with setRating() method <br>
-  • numStars - count of stars in rating bar. Allowable values from 3 to 10 <br>
-  • activeStar - image for choosen rating. <br>
-  • inActiveStar - image for empty rating star <br>
-  • starSpace - increase space between stars. Some times it's work automatically, if we use exact size of view. <br>
+  • hasAmimation - with this flag view will works with animation <br><br>
+  • rating - value of rating that can be setted from xml or with setRating() method <br><br>
+  • numStars - count of stars in rating bar. Allowable values from 3 to 10 <br><br>
+  • activeStar - image for choosen rating. <br><br>
+  • inActiveStar - image for empty rating star <br><br>
+  • starSpace - increase space between stars. Some times it's work automatically, if we use exact size of view. <br><br>
   
 # License
   
