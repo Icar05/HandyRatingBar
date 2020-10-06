@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 29
@@ -31,5 +31,25 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+}
+
+publish {
+
+    def groupProjectID = 'com.github.Icar05'
+    def artifactProjectID = 'handyratingbar'
+    def publishVersionID = '0.1.1'
+
+
+    uploadName='HandyRatingBar'
+    licences = ['Apache-2.0']
+    userOrg = ''
+    repoName = 'handyratingbar'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'Library that include simple, flexable ratingbar with animation'
+    website = 'https://github.com/Icar05/HandyRatingBar.git'
+
 
 }
