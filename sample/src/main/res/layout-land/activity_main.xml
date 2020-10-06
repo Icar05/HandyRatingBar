@@ -51,7 +51,8 @@
         app:layout_constraintTop_toTopOf="@id/guideline"
 
         app:numStars="9"
-        app:starSpace="0dp" />
+        app:starSpace="0dp"
+        app:allowTouchEvent="true"/>
 
 
     <LinearLayout

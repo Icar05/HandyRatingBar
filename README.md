@@ -21,6 +21,7 @@ compile 'com.github.Icar05:handyratingbar:0.1.0' <br>
   • activeStar - image for choosen rating. <br><br>
   • inActiveStar - image for empty rating star <br><br>
   • starSpace - increase space between stars. Some times it's work automatically, if we use exact size of view. <br><br>
+  • allowTouchEvent - by default disable touch event. If you want to interaction set it to true. <br><br>
   
 # License
   
