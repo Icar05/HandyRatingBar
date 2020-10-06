@@ -3,11 +3,9 @@ package com.Icar05.handyratingbar
 import android.animation.Animator
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
 import android.support.annotation.DrawableRes
@@ -96,14 +94,21 @@ class HandyRatingBar : View {
 
     //this is additional size, that we get when animation works
     private var sizeTransformedByAnimation: Int = 0
+    
+    private var allowTouch: Boolean = false
 
 
+    
+    
     constructor(context: Context) : this(context, null)
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) { init(attrs) }
 
+    
+    
+    
     private fun init(attrs: AttributeSet?) {
 
         val resources = this.resources
@@ -132,7 +137,8 @@ class HandyRatingBar : View {
         if (this.rating > mNumStars) {
             this.rating = 3f
         }
-
+        
+        this.allowTouch = typedArray.getBoolean(R.styleable.HandyRatingBar_allowTouchEvent, false)
 
         this.hasAnimation = typedArray.getBoolean(R.styleable.HandyRatingBar_hasAmimation, false)
 
@@ -148,10 +154,10 @@ class HandyRatingBar : View {
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
 
 
-        val measuredWidth = View.MeasureSpec.getSize(widthMeasureSpec)
-        val measuredHeight = View.MeasureSpec.getSize(heightMeasureSpec)
+        val measuredWidth = MeasureSpec.getSize(widthMeasureSpec)
+        val measuredHeight = MeasureSpec.getSize(heightMeasureSpec)
         val heightOfPadding = paddingTop + paddingBottom
-        val heightMode = View.MeasureSpec.getMode(heightMeasureSpec)
+        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
 
         // offset for right and left sides
         val leftEndRightOffset = 2 * offsetForTransformation
@@ -162,9 +168,7 @@ class HandyRatingBar : View {
 
 
         //if height is exactly
-        if (heightMode == View.MeasureSpec.EXACTLY) {
-
-
+        if (heightMode == MeasureSpec.EXACTLY) {
             height = measuredHeight
 
             mStarSize = measuredHeight - heightOfPadding - leftEndRightOffset
@@ -256,17 +260,20 @@ class HandyRatingBar : View {
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
+        
+        if(!allowTouch){
+            return false
+        }
 
         if (ratingAnimator != null && ratingAnimator!!.isRunning) {
             return true
         }
+    
+        when (event.action and MotionEvent.ACTION_MASK) {
 
-        val action = event.action and MotionEvent.ACTION_MASK
-        when (action) {
-
-            MotionEvent.ACTION_MOVE ->
-
+            MotionEvent.ACTION_MOVE -> {
                 updateRating(event.x)
+            }
 
 
             MotionEvent.ACTION_UP -> {
@@ -274,12 +281,8 @@ class HandyRatingBar : View {
                 updateRating(event.x)
 
                 if (hasAnimation) {
-
-                    //call animation with callback
                     ratingAnimator?.start()
                 } else {
-
-                    //just call callback
                     if (ratingListener != null) {
                         ratingListener!!.onRatingChanged(rating + 1)
                     }
@@ -368,7 +371,7 @@ class HandyRatingBar : View {
      */
     override fun onSaveInstanceState(): Parcelable? {
         val superState = super.onSaveInstanceState()
-        val savedState = SavedState(superState)
+        val savedState = SavedState(superState!!)
         savedState.rating = rating
         return savedState
     }
@@ -379,14 +382,9 @@ class HandyRatingBar : View {
         setRating(savedState.rating)
     }
 
-    private class SavedState : View.BaseSavedState {
-        internal var rating = 0.0f
-
-        @TargetApi(Build.VERSION_CODES.N)
-        private constructor(source: Parcel, loader: ClassLoader) : super(source, loader)
-
-        internal constructor(superState: Parcelable) : super(superState)
-
+    private class SavedState(superState: Parcelable) : View.BaseSavedState(superState) {
+        var rating = 0.0f
+    
         override fun writeToParcel(out: Parcel, flags: Int) {
             super.writeToParcel(out, flags)
             out.writeFloat(rating)
