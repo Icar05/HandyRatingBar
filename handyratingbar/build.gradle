@@ -1,6 +1,7 @@
+apply plugin: 'com.github.panpf.bintray-publish'
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.novoda.bintray-release'
+
 
 android {
     compileSdkVersion 29
@@ -44,13 +45,11 @@ publish {
 
     uploadName='HandyRatingBar'
     licences = ['Apache-2.0']
-    userOrg = ''
+    userOrg = 'icar05'
     repoName = 'handyratingbar'
     groupId = groupProjectID
     artifactId = artifactProjectID
     publishVersion = publishVersionID
     desc = 'Library that include simple, flexable ratingbar with animation'
     website = 'https://github.com/Icar05/HandyRatingBar.git'
-
-
 }
