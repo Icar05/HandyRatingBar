@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
 
 
         topBar.setRating(3f)
+        topBar.setAllowTouch(true)
+        bottomBar.setAllowTouch(true)
 
         green.setOnClickListener{
             showMessage("Rating "+topBar.getRating())

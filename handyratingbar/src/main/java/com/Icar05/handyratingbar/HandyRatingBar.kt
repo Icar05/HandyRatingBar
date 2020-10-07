@@ -14,7 +14,8 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.view.animation.LinearInterpolator
-
+import kotlin.math.abs
+import kotlin.math.ceil
 
 
 /**
@@ -247,9 +248,12 @@ class HandyRatingBar : View {
         }
     }
 
+    fun setAllowTouch(value: Boolean){
+        this.allowTouch = value
+    }
 
     fun getRating(): Float {
-        return rating + 1
+        return abs(ceil(rating))
     }
 
 
@@ -328,11 +332,8 @@ class HandyRatingBar : View {
 
             // Callback that executes on animation steps.
             ratingAnimator?.addUpdateListener { animation ->
-
-
                 sizeTransformedByAnimation = animation.animatedValue as Int
                 invalidate()
-
             }
 
             ratingAnimator?.addListener(object : Animator.AnimatorListener {
